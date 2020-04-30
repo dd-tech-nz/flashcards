@@ -5,6 +5,7 @@ import AddCard from './AddCard'
 import DrawButton from './DrawButton'
 import Deck from './Deck'
 import Header from './Header'
+import EditCard from './EditCard'
 import {Route} from 'react-router-dom'
 
 
@@ -14,6 +15,7 @@ class App extends Component {
     
     this.updateCard = this.updateCard.bind(this)
     this.removeCard = this.removeCard.bind(this)
+    this.editCard = this.editCard.bind(this)
 
     this.state = {
       cards: [{
@@ -75,6 +77,10 @@ class App extends Component {
     }))
   }
 
+  editCard(cardModified) {
+    console.log(cardModified.question)
+  }
+
 
   render() {
     console.log(this.state.cards)
@@ -104,6 +110,9 @@ class App extends Component {
           <div className="cardGrid">
             <Deck cards={this.state.cards} onRemoveCard={this.removeCard}/>
           </div>
+        )} />
+        <Route path="/EditCard" render={() => (
+          <EditCard cards={this.state.cards} onEditCard={this.editCard}/>
         )}/>
        </>
     )

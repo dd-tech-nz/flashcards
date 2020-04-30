@@ -109,6 +109,7 @@ body {
   background: #34495e;
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /* btn:hover {
@@ -164,4 +165,11 @@ button:hover {
   border-color: blue;
 }
 
-
+.backToApp {
+  background: url("./assets/backIcon.png") center no-repeat;
+  background-size: contain;
+  padding: 40px;
+  margin: 20px auto;
+  border: none;
+  
+}
