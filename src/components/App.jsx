@@ -10,8 +10,8 @@ import {Route} from 'react-router-dom'
 
 
 class App extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     
     this.updateCard = this.updateCard.bind(this)
     this.removeCard = this.removeCard.bind(this)
@@ -78,12 +78,21 @@ class App extends Component {
   }
 
   editCard(cardModified) {
-    console.log(cardModified.question)
+    // let cardsCopy = JSON.parse(JSON.stringify(this.state.cards))
+    let cardsCopy = this.state.cards
+    cardsCopy.find(mod => mod.id === cardModified.id).question = cardModified.question
+    // console.log(cardsCopy.find(id => id.id === cardModified.id))
+    cardsCopy.find(mod => mod.id === cardModified.id).answer = cardModified.answer
+    cardsCopy.find(mod => mod.id === cardModified.id).imageLink = cardModified.imageLink
+    cardsCopy.find(mod => mod.id === cardModified.id).priority = cardModified.priority
+    this.setState({
+      cards: cardsCopy
+    })
+    console.log('cards', this.state)
   }
 
 
   render() {
-    console.log(this.state.cards)
     return (
       <>
       <Route path='/' component = {Header} />
@@ -111,8 +120,8 @@ class App extends Component {
             <Deck cards={this.state.cards} onRemoveCard={this.removeCard}/>
           </div>
         )} />
-        <Route path="/EditCard" render={() => (
-          <EditCard cards={this.state.cards} onEditCard={this.editCard}/>
+        <Route path="/EditCard/:id" render={(props) => (
+          <EditCard cards={this.state.cards} onEditCard={this.editCard} {...props} />
         )}/>
        </>
     )

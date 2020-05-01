@@ -7,7 +7,7 @@ function ListCard(props) {
     <img className="picture" src={card.imageLink} alt={card.question} />
     <figcaption><p>{card.question}</p></figcaption>
     <p>{card.answer}</p>
-    <Link className ="edit-cards" to="/EditCard/">Edit Card</Link>
+    <Link className="edit-cards" to={`/EditCard/${card.id}`}  >Edit Card</Link>
     <div className = "button-container">
     <button className="btn" onClick={() => {
       props.onRemoveCard(card)
