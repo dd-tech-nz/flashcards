@@ -5,7 +5,7 @@
   font-weight: normal;
   font-style: normal;
 }
-
+/* styling for headers */
 h1 {
   font-family: billabong, 'billabongregular';
   text-align: center;
@@ -17,6 +17,7 @@ h1 {
   text-decoration: none;
 }
 
+/* enable scrolling */
 html {
   overflow-y: scroll;
 }
@@ -47,21 +48,20 @@ body {
   align-items: center; /*centers items on the cross-axis (y by default)*/
   background-color: #F1F1F1;
 }
-/* 
-.App {
-  display: flex;
-} */
 
+/* styling for Answers component */
 .know {
   color: green;
   width: 70%;
   margin-left: 10px;
+  border: none;
 }
 
 .dontKnow {
   color: tomato;
   width: 70%;
   margin-left: 10px;
+  border: none;
 }
 
 .answers {
@@ -75,7 +75,7 @@ body {
 }
 
 .controls {
-  align-tems: flex-end;
+  align-items: flex-end;
   justify-content: center;
   margin: 2% auto;
   /* max-width: 50%; */

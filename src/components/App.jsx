@@ -9,7 +9,6 @@ import EditCard from './EditCard'
 import Answers from './Answers'
 import {Route} from 'react-router-dom'
 
-
 class App extends Component {
   constructor() {
     super()
@@ -37,7 +36,8 @@ class App extends Component {
         imageLink: 'https://miro.medium.com/max/600/1*2N0l3bLqaBgmOSIay-uc5w.png',
         priority: 5,
       }],
-      currentcard: {}
+      currentcard: {},
+      seenCards: []
     }
   }
 
@@ -52,6 +52,13 @@ class App extends Component {
 
   getRandomCard(currentCards) {
     let card = currentCards[Math.floor(Math.random() * currentCards.length)]
+    if (this.state.seenCards.length >= this.state.cards.length) alert('End of Deck')
+    while (this.state.seenCards.includes(card.id)) {
+      card = currentCards[Math.floor(Math.random() * currentCards.length)]
+      this.setState({ state: this.state })
+    }
+    this.setState(state => ({ seenCards: state.seenCards.concat([card.id]) }))
+    console.log(this.state.seenCards)
     return card
   }
 
