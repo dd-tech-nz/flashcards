@@ -6,6 +6,7 @@ import DrawButton from './DrawButton'
 import Deck from './Deck'
 import Header from './Header'
 import EditCard from './EditCard'
+import Answers from './Answers'
 import {Route} from 'react-router-dom'
 
 
@@ -95,7 +96,7 @@ class App extends Component {
   render() {
     return (
       <>
-      <Route path='/' component = {Header} />
+      <Route exact path='/' component = {Header} />
       <Route exact path="/" render={() => (
       <div className="App">
         <div className="cardRow">
@@ -106,7 +107,11 @@ class App extends Component {
             </div>
           <div className="buttonRow">
             <DrawButton drawCard={this.updateCard} />
-          </div>
+            </div>
+            <div className="answers">
+              <Answers />
+            </div>
+            
         </div>
         )}/>
         <Route path="/AddCard" render={({history}) => (

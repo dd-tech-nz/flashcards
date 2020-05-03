@@ -1,8 +1,27 @@
+@font-face {
+  font-family: 'billabongregular';
+  src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot");
+  src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot?#iefix") format('embedded-opentype'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.woff") format('woff'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf") format('truetype'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.svg#billabongregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: billabong, 'billabongregular';
+  text-align: center;
+  font-weight: 100;
+  font-size: 8rem;
+  margin: 2rem 0;
+  letter-spacing: -1px;
+  color: black;
+  text-decoration: none;
+}
+
 html {
   overflow-y: scroll;
 }
 
-h1, h2, h3, h4, h5 {
+h2, h3, h4, h5 {
   font-family: 'EconomicaBold';
 }
 
@@ -28,6 +47,41 @@ body {
   align-items: center; /*centers items on the cross-axis (y by default)*/
   background-color: #F1F1F1;
 }
+/* 
+.App {
+  display: flex;
+} */
+
+.know {
+  color: green;
+  width: 70%;
+  margin-left: 10px;
+}
+
+.dontKnow {
+  color: tomato;
+  width: 70%;
+  margin-left: 10px;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  position: relative;
+  left: 500px;
+  bottom: 550px;
+}
+
+.controls {
+  align-tems: flex-end;
+  justify-content: center;
+  margin: 2% auto;
+  /* max-width: 50%; */
+}
+
+
 
 .card-container {
   cursor: pointer;
@@ -96,25 +150,32 @@ body {
 }
 
 .controls {
-  display: table;
+  display: flex;
+  justify-content: center;
   margin: 2% auto;
+  /* max-width: 50%; */
+}
+
+.controls > .addIcon {
+  margin: 5px;
 }
 
 .addIcon {
-  background: url("https://image.flaticon.com/icons/svg/60/60740.svg") center no-repeat;
+  background: url("./assets/add.png") center no-repeat;
   background-size: contain;
   padding: 40px;
   /* display: table-cell; */
-  margin: px auto;
+  margin: 0 20px;
   border: none;
+  /* display: flex; */
 }
 
 .viewDeck {
   background: url("./assets/cardDeck.png") center no-repeat;
   background-size: contain;
   padding: 40px;
-  display: table-cell;
-  margin: 20px auto;
+  /* display: flex; */
+  margin: 0 20px;
   border: none;
 }
 
@@ -131,15 +192,15 @@ body {
   border: none;
   width: 200px;
   height: 70px;
-  display: block;
+  display: flex;
   text-align: center;
   text-decoration: none;
   color: #ecf0f1;
   box-shadow: 0px 6px #2c3e50;
   background: #34495e;
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  /* margin-top: 20px;
+  margin-bottom: 20px; */
 }
 
 
@@ -190,9 +251,13 @@ button:hover {
   border-color: blue;
 }
 
-.button-container {
+.buttonContainer {
   display: flex;
   padding: 0 20%;
   margin-bottom: 20px;
+}
+
+.edit-card form input {
+  font-weight: 600;
 }
 

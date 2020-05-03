@@ -16,13 +16,14 @@ class DrawButton extends Component{
   render(props) {
     return (
       <>
-        <div className="buttonContainer">
+        <div className="buttonContainer"><Link className='addIcon' to='/AddCard'></Link>
+          
           <button className="btn" onClick={this.drawCard}>Draw Card</button>
+          <Link className='viewDeck' to='/Decks'></Link>
         </div>
 
         <div className="controls">
-          <Link className='addIcon' to='/AddCard'></Link>
-          <Link className='viewDeck' to='/Decks'></Link>
+          
         </div>
       </>
     )

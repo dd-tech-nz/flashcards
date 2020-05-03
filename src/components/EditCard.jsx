@@ -31,7 +31,7 @@ class EditCard extends Component {
     return (
       <>
         <h1>Edit Card</h1>
-        <div className='form'>
+        <div className='form edit-card'>
           <form onSubmit={this.handleEdit}>
             <input type="text" placeholder="Question" name="question" defaultValue={card.question}/>
             <input type="text" placeholder="Answer" name="answer" defaultValue={card.answer}/>
