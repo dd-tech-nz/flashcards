@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css'
 import Card from './Card'
 import AddCard from './AddCard'
 import DrawButton from './DrawButton'
@@ -36,8 +35,9 @@ class App extends Component {
         imageLink: 'https://miro.medium.com/max/600/1*2N0l3bLqaBgmOSIay-uc5w.png',
         priority: 5,
       }],
-      currentcard: {},
-      seenCards: []
+      currentCard: {},
+      seenCards: [],
+      endOfDeck: false
     }
   }
 
@@ -51,16 +51,25 @@ class App extends Component {
   }
 
   getRandomCard(currentCards) {
+    const { endOfDeck, seenCards, cards } = this.state
     let card = currentCards[Math.floor(Math.random() * currentCards.length)]
-    if (this.state.seenCards.length >= this.state.cards.length) alert('End of Deck')
-    while (this.state.seenCards.includes(card.id)) {
+    
+    while ((seenCards.includes(card.id)) && !endOfDeck) {
       card = currentCards[Math.floor(Math.random() * currentCards.length)]
-      this.setState({ state: this.state })
     }
-    this.setState(state => ({ seenCards: state.seenCards.concat([card.id]) }))
-    console.log(this.state.seenCards)
+
+    const seen = [...seenCards, card.id]
+    const atEnd = endOfDeck || (seen.length === cards.length)
+
+    this.setState({
+      endOfDeck: atEnd,
+      seenCards: seen,
+      currentCard: atEnd ? {} : card
+    })
+
     return card
   }
+
 
   updateCard() {
     const currentCards = this.state.cards
@@ -86,7 +95,6 @@ class App extends Component {
   }
 
   editCard(cardModified) {
-    // let cardsCopy = JSON.parse(JSON.stringify(this.state.cards))
     let cardsCopy = this.state.cards
     cardsCopy.find(mod => mod.id === cardModified.id).question = cardModified.question
     // console.log(cardsCopy.find(id => id.id === cardModified.id))
@@ -96,7 +104,13 @@ class App extends Component {
     this.setState({
       cards: cardsCopy
     })
-    console.log('cards', this.state)
+  }
+
+  sendEodNotification() {
+    let eodFlag = false
+    if (this.state.seenCards.length === this.state.cards.length + 1) eodFlag = true
+    return eodFlag
+
   }
 
 
@@ -107,13 +121,18 @@ class App extends Component {
       <Route exact path="/" render={() => (
       <div className="App">
         <div className="cardRow">
-          <Card question={this.state.currentCard.question}
+              <Card
+                // eod={this.state.endOfDeck}
+                question={this.state.currentCard.question}
                 answer={this.state.currentCard.answer}
                 image={this.state.currentCard.imageLink}
             />
             </div>
           <div className="buttonRow">
-            <DrawButton drawCard={this.updateCard} />
+              <DrawButton
+                drawCard={this.updateCard}
+                eod={this.sendEodNotification()}
+              />
             </div>
             <div className="answers">
               <Answers />
@@ -134,7 +153,7 @@ class App extends Component {
         )} />
         <Route path="/EditCard/:id" render={(props) => (
           <EditCard cards={this.state.cards} onEditCard={this.editCard} {...props} />
-        )}/>
+        )} />
        </>
     )
   }

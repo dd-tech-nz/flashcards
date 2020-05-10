@@ -14,19 +14,37 @@ class DrawButton extends Component{
   }
 
   render(props) {
-    return (
-      <>
-        <div className="buttonContainer"><Link className='addIcon' to='/AddCard'></Link>
-          
-          <button className="btn" onClick={this.drawCard}>Draw Card</button>
-          <Link className='viewDeck' to='/Decks'></Link>
-        </div>
+    console.log(this.props.eod)
 
-        <div className="controls">
+    if (this.props.eod) {
+      return (
+        <>
+          <div className="buttonContainer"><Link className='addIcon' to='/AddCard'></Link>
           
-        </div>
-      </>
-    )
+            <button className="btn-eod">End of Deck</button>
+            <Link className='viewDeck' to='/Decks'></Link>
+          </div>
+
+          <div className="controls">
+          
+          </div>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <div className="buttonContainer"><Link className='addIcon' to='/AddCard'></Link>
+          
+            <button className="btn" onClick={this.drawCard}>Draw Card</button>
+            <Link className='viewDeck' to='/Decks'></Link>
+          </div>
+
+          <div className="controls">
+          
+          </div>
+        </>
+      )
+    }
   }
 }
 

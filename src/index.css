@@ -51,17 +51,49 @@ body {
 
 /* styling for Answers component */
 .know {
-  color: green;
-  width: 70%;
-  margin-left: 10px;
+  font-size: 0.7em;
   border: none;
+  width: 200px;
+  height: 70px;
+  /* display: flex; */
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  color: #32CD32;
+  box-shadow: 0px 6px #2c3e50;
+  background: #34495e;
+  margin: auto;
+}
+
+.know:active{
+  border: none;
+  position: relative;
+  top: 3px;
+  box-shadow: 0px 0px #2c3e50;
+  background: #2c3e50;
 }
 
 .dontKnow {
   color: tomato;
-  width: 70%;
-  margin-left: 10px;
+  font-size: 0.7em;
   border: none;
+  width: 200px;
+  height: 70px;
+  /* display: flex; */
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  box-shadow: 0px 6px #2c3e50;
+  background: #34495e;
+  margin: auto;
+}
+
+.dontKnow:active {
+  border: none;
+  position: relative;
+  top: 3px;
+  box-shadow: 0px 0px #2c3e50;
+  background: #2c3e50;
 }
 
 .answers {
@@ -81,8 +113,6 @@ body {
   /* max-width: 50%; */
 }
 
-
-
 .card-container {
   cursor: pointer;
   height: 400px;
@@ -91,6 +121,7 @@ body {
   position: relative;
   margin: auto;
   transition: ease-in;
+  margin-bottom: 10px;
 }
 
 .card {
@@ -171,7 +202,7 @@ body {
 }
 
 .viewDeck {
-  background: url("./assets/cardDeck.png") center no-repeat;
+  background: url("./assets/cardDeck1.png") center no-repeat;
   background-size: contain;
   padding: 40px;
   /* display: flex; */
@@ -192,8 +223,9 @@ body {
   border: none;
   width: 200px;
   height: 70px;
-  display: flex;
+  /* display: flex; */
   text-align: center;
+  line-height: 70px;
   text-decoration: none;
   color: #ecf0f1;
   box-shadow: 0px 6px #2c3e50;
@@ -203,13 +235,34 @@ body {
   margin-bottom: 20px; */
 }
 
-
 .btn:active{
   border: none;
   position: relative;
   top: 3px;
   box-shadow: 0px 0px #2c3e50;
   background: #2c3e50;
+}
+
+.btn-eod {
+  font-size: 1.5em;
+  border: none;
+  width: 200px;
+  height: 70px;
+  /* display: flex; */
+  text-align: center;
+  text-decoration: none;
+  color: #ecf0f1;
+  box-shadow: 0px 6px #4c1d15;
+  background: #7a0012;
+  margin: auto;
+}
+
+.btn-eod:active{
+  border: none;
+  position: relative;
+  top: 3px;
+  box-shadow: 0px 0px #4c1d15;
+  background: #4c1d15;
 }
 
 .form {
@@ -253,6 +306,8 @@ button:hover {
 
 .buttonContainer {
   display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0 20%;
   margin-bottom: 20px;
 }
@@ -261,3 +316,6 @@ button:hover {
   font-weight: 600;
 }
 
+.sideCheck {
+  padding-left: 50px;
+}

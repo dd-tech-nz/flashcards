@@ -2,7 +2,7 @@ import React from 'react'
 
 const Answers = (props) => {
   return (
-    <div>
+    <div className="sideCheck">
       <h2>Did you know the answer?</h2>
       <button className="know">
         <i className="fa fa-check fa-5x"></i>
