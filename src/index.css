@@ -26,12 +26,32 @@ h2, h3, h4, h5 {
   font-family: 'EconomicaBold';
 }
 
+
+.App {
+  display: flex;
+  align-items:center;
+  align-content: space-around;
+  justify-content: stretch;
+
+
+}
+
 .CardRow{
-  padding: 5px;
+  align-self: stretch;
+  
 }
 
 .btnRow{
   padding: 5px;
+}
+
+.answers {
+  padding-bottom: 20%;
+  margin-left: 20%;
+}
+
+.reset {
+margin-bottom: 30%;
 }
 
 body {
@@ -40,22 +60,17 @@ body {
   padding: 2.5%;
   font-family: 'RobotoCondensed';
   overflow: hidden;
-  /* position: absolute; */
-  /* width: 100%;
-  height: 100%; */
   display: flex;
   justify-content: center; /*centers items on the line (the x-axis by default)*/
   align-items: center; /*centers items on the cross-axis (y by default)*/
   background-color: #F1F1F1;
 }
 
-/* styling for Answers component */
 .know {
   font-size: 0.7em;
   border: none;
   width: 200px;
   height: 70px;
-  /* display: flex; */
   text-align: center;
   line-height: 50px;
   text-decoration: none;
@@ -79,7 +94,6 @@ body {
   border: none;
   width: 200px;
   height: 70px;
-  /* display: flex; */
   text-align: center;
   line-height: 50px;
   text-decoration: none;
@@ -96,21 +110,12 @@ body {
   background: #2c3e50;
 }
 
-.answers {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  align-items: center;
-  position: relative;
-  left: 500px;
-  bottom: 550px;
-}
+
 
 .controls {
   align-items: flex-end;
   justify-content: center;
   margin: 2% auto;
-  /* max-width: 50%; */
 }
 
 .card-container {
@@ -118,10 +123,9 @@ body {
   height: 400px;
   width: 400px;
   perspective: 800px;
-  position: relative;
-  margin: auto;
+  margin-left: 40%;
   transition: ease-in;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .card {
@@ -184,7 +188,6 @@ body {
   display: flex;
   justify-content: center;
   margin: 2% auto;
-  /* max-width: 50%; */
 }
 
 .controls > .addIcon {
@@ -195,17 +198,14 @@ body {
   background: url("./assets/add.png") center no-repeat;
   background-size: contain;
   padding: 40px;
-  /* display: table-cell; */
   margin: 0 20px;
   border: none;
-  /* display: flex; */
 }
 
 .viewDeck {
   background: url("./assets/cardDeck1.png") center no-repeat;
   background-size: contain;
   padding: 40px;
-  /* display: flex; */
   margin: 0 20px;
   border: none;
 }
@@ -223,7 +223,6 @@ body {
   border: none;
   width: 200px;
   height: 70px;
-  /* display: flex; */
   text-align: center;
   line-height: 70px;
   text-decoration: none;
@@ -231,8 +230,6 @@ body {
   box-shadow: 0px 6px #2c3e50;
   background: #34495e;
   margin: auto;
-  /* margin-top: 20px;
-  margin-bottom: 20px; */
 }
 
 .btn:active{
@@ -248,7 +245,6 @@ body {
   border: none;
   width: 200px;
   height: 70px;
-  /* display: flex; */
   text-align: center;
   text-decoration: none;
   color: #ecf0f1;
@@ -305,10 +301,8 @@ button:hover {
 }
 
 .buttonContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0 20%;
+  margin-left: 15%;
   margin-bottom: 20px;
 }
 
