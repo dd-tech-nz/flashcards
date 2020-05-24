@@ -4,7 +4,10 @@ export default class ResetButton extends Component {
   render() {
     return (
       <div>
-        <button>Reset</button>
+        <button
+          className="btn"
+          style={{color: '#32CD32'}}
+        >Reset</button>
       </div>
     )
   }
