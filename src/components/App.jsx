@@ -17,6 +17,7 @@ class App extends Component {
     this.updateCard = this.updateCard.bind(this)
     this.removeCard = this.removeCard.bind(this)
     this.editCard = this.editCard.bind(this)
+    this.Reset = this.Reset.bind(this)
 
     this.state = {
       cards: CARD_DATA,
@@ -98,6 +99,16 @@ class App extends Component {
 
   }
 
+  Reset() {
+    const currentCards = this.state.cards
+    this.setState({
+      endOfDeck: false,
+      seenCards: [],
+      currentCard: this.getRandomCard(currentCards)
+    })
+    
+  }
+
 
   render() {
     return (
@@ -106,7 +117,7 @@ class App extends Component {
       <Route exact path="/" render={() => (
           <div className="App">
         <div className="reset">
-          <ResetButton />
+              <ResetButton onReset={this.Reset}/>
         </div>
         <div className="cardRow">
               <Card

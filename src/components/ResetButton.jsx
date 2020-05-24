@@ -1,14 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class ResetButton extends Component {
-  render() {
+const ResetButton = (props) => {
     return (
       <div>
         <button
           className="btn"
-          style={{color: '#32CD32'}}
-        >Reset</button>
+          style={{ color: '#32CD32' }}
+          onClick={() => {props.onReset()}}
+        >
+          Reset
+        </button>
       </div>
     )
   }
-}
+
+export default ResetButton
+
