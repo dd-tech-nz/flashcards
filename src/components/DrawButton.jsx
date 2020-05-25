@@ -14,8 +14,6 @@ class DrawButton extends Component{
   }
 
   render(props) {
-    console.log(this.props.eod)
-
     if (this.props.eod) {
       return (
         <>

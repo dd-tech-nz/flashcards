@@ -13,11 +13,14 @@ import {Route} from 'react-router-dom'
 class App extends Component {
   constructor() {
     super()
+
+   
     
     this.updateCard = this.updateCard.bind(this)
     this.removeCard = this.removeCard.bind(this)
     this.editCard = this.editCard.bind(this)
     this.Reset = this.Reset.bind(this)
+    this.knowAnswer = this.knowAnswer.bind(this)
 
     this.state = {
       cards: CARD_DATA,
@@ -100,11 +103,23 @@ class App extends Component {
   }
 
   Reset() {
-    const currentCards = this.state.cards
-    this.setState({
-      endOfDeck: false,
-      seenCards: [],
-      currentCard: this.getRandomCard(currentCards)
+    // const currentCards = this.state.cards
+    // this.setState({
+    //   endOfDeck: false,
+    //   seenCards: [],
+    //   currentCard: this.getRandomCard(currentCards)
+    // })
+    window.location.reload()
+  }
+
+  knowAnswer = (id) => {
+    this.state.cards.forEach(card => {
+      if (card.id === id) {
+        let priority = card.priority
+        if (priority > 0) priority--
+        card.priority = priority
+        console.log(card.priority)
+      }
     })
     
   }
@@ -117,7 +132,9 @@ class App extends Component {
       <Route exact path="/" render={() => (
           <div className="App">
         <div className="reset">
-              <ResetButton onReset={this.Reset}/>
+              <ResetButton
+                onReset={this.Reset}
+              />
         </div>
         <div className="cardRow">
               <Card
@@ -134,7 +151,9 @@ class App extends Component {
             </div>
               </div>
               <div className="answers">
-              <Answers />
+              <Answers
+                card={this.state.currentCard}
+                onknowAnswer={this.knowAnswer}/>
             </div>
         </div>
         )}/>
